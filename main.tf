@@ -1,16 +1,16 @@
 resource "aws_lb" "alb" {
-  name                             = var.name
+  name = var.name
 
-  internal                         = var.is_internal
-  load_balancer_type               = "application"
+  internal           = var.is_internal
+  load_balancer_type = "application"
 
   security_groups                  = [var.alb_sg]
   subnets                          = var.subnets_id
   enable_deletion_protection       = var.delete_protection
   enable_cross_zone_load_balancing = var.cross_zone_lb
 
-  idle_timeout                     = var.idle_timeout
-  drop_invalid_header_fields       = var.drop_invalid_header_fields
+  idle_timeout               = var.idle_timeout
+  drop_invalid_header_fields = var.drop_invalid_header_fields
 
   access_logs {
     bucket  = aws_s3_bucket.alb_logs.id

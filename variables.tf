@@ -21,7 +21,7 @@ variable "alb_sg" {
 
 variable "subnets_id" {
   description = "List of subnets where the LB will place it's terminations"
-  type        = list
+  type        = list(any)
 }
 
 variable "delete_protection" {
@@ -54,7 +54,7 @@ variable "ssl_cert_arn" {
 
 variable "additional_certs" {
   description = "List of additional certificates that can be attached to the https listener, this uses SNI. default=[]"
-  type        = list
+  type        = list(any)
   default     = []
 }
 
@@ -63,7 +63,7 @@ variable "tags" {
   default = {
     terraform = true
   }
-  type = map
+  type = map(any)
 }
 
 variable "drop_invalid_header_fields" {
